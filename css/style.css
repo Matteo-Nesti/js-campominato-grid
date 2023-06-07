@@ -3,7 +3,6 @@ main {
 }
 
 main {
-    
     padding: 4rem;
 }
 .cellsContainer {
@@ -17,6 +16,9 @@ main {
     background-color: lightblue;
     border: 2px solid blue;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cell.clicked {
