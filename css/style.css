@@ -1,0 +1,25 @@
+main {
+    background-color: lightyellow;
+}
+
+main {
+    
+    padding: 4rem;
+}
+.cellsContainer {
+    width: 600px;
+    height: 600px;
+}
+
+.cell {
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    background-color: lightblue;
+    border: 2px solid blue;
+    cursor: pointer;
+}
+
+.cell.clicked {
+    background-color: goldenrod;
+}
+
