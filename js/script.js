@@ -27,32 +27,81 @@ cliccata.
 
 const headerButton = document.getElementById('headerButton')
 const cells = document.getElementById('cells')
+const diffcultyField = document.getElementById('diff')
 
 // creo le caselle 
 
-const rows = 10;
-const cols = 10;
+let rows = 10;
+let cols = 10;
 const easyCell = cols * rows
 
-for(let i = 1; i <= 100; i++){
-    const easyCell = document.createElement('div')
-    easyCell.classList.add('cell', 'd-none')
-    easyCell.innerText = i
-    cells.appendChild(easyCell);
+headerButton.addEventListener('click', function(){
+    const difficulty = diffcultyField.value
 
 
-    //metto in ascolto il bottone nell header
+    if(difficulty == 1){
+        for(let i = 1; i <= easyCell; i++){
+            const cell = document.createElement('div')
+            cell.classList.add('cell', 'd-none')
+            cell.innerText = i
+            cells.appendChild(cell);
+            
+            // tolgo la classe dal tabellone
+            cell.classList.toggle('d-none')
+            // creo un messaggio da poi stampare
+            let message = 'hai cliccato il numero ' + i;
+            //metto in ascolto le celle
+            
+            cell.addEventListener('click', function(){
+                cell.classList.toggle('clicked')
+                console.log(message)
+            })
+        }
+    }
+    
 
-    headerButton.addEventListener('click', function(){
-        // tolgo la classe dal tabellone
-        easyCell.classList.toggle('d-none')
-    })
-    // creo un messaggio da poi stampare
-    let message = 'hai cliccato il numero ' + i;
-    //metto in ascolto le celle
-
-    easyCell.addEventListener('click', function(){
-        easyCell.classList.toggle('clicked')
-        console.log(message)
-    })
-}
+    else if(difficulty == 2){
+        rows = 9;
+        cols = 9;
+        const easyCell = cols * rows
+        for(let i = 1; i <= easyCell; i++){
+            const cell = document.createElement('div')
+            cell.classList.add('cell', 'd-none', 'cell-normal')
+            cell.innerText = i
+            cells.appendChild(cell);
+            
+            // tolgo la classe dal tabellone
+            cell.classList.toggle('d-none')
+            // creo un messaggio da poi stampare
+            let message = 'hai cliccato il numero ' + i;
+            //metto in ascolto le celle
+            
+            cell.addEventListener('click', function(){
+                cell.classList.toggle('clicked')
+                console.log(message)
+            })
+        }
+    }
+    else if(difficulty == 3){
+        rows = 7;
+        cols = 7;
+        const easyCell = cols * rows
+        for(let i = 1; i <= easyCell; i++){
+            const cell = document.createElement('div')
+            cell.classList.add('cell', 'd-none', 'cell-hard')
+            cell.innerText = i
+            cells.appendChild(cell);
+            
+            // tolgo la classe dal tabellone
+            cell.classList.toggle('d-none')
+            // creo un messaggio da poi stampare
+            let message = 'hai cliccato il numero ' + i;
+            //metto in ascolto le celle
+            
+            cell.addEventListener('click', function(){
+                cell.classList.toggle('clicked')
+                console.log(message)
+            })
+        }
+    }
+})
