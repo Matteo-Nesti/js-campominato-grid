@@ -30,20 +30,29 @@ const cells = document.getElementById('cells')
 
 // creo le caselle 
 
+const rows = 10;
+const cols = 10;
+const easyCell = cols * rows
+
 for(let i = 1; i <= 100; i++){
-    const cell = document.createElement('div')
-    cell.classList.add('cell', 'd-none')
-    cell.innerText = i
-    cells.appendChild(cell);
+    const easyCell = document.createElement('div')
+    easyCell.classList.add('cell', 'd-none')
+    easyCell.innerText = i
+    cells.appendChild(easyCell);
+
+
+    //metto in ascolto il bottone nell header
 
     headerButton.addEventListener('click', function(){
-        cell.classList.toggle('d-none')
+        // tolgo la classe dal tabellone
+        easyCell.classList.toggle('d-none')
     })
-
+    // creo un messaggio da poi stampare
     let message = 'hai cliccato il numero ' + i;
+    //metto in ascolto le celle
 
-    cell.addEventListener('click', function(){
-        cell.classList.toggle('clicked')
+    easyCell.addEventListener('click', function(){
+        easyCell.classList.toggle('clicked')
         console.log(message)
     })
 }
