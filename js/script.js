@@ -40,7 +40,10 @@ for(let i = 1; i <= 100; i++){
         cell.classList.toggle('d-none')
     })
 
+    let message = 'hai cliccato il numero ' + i;
+
     cell.addEventListener('click', function(){
         cell.classList.toggle('clicked')
+        console.log(message)
     })
 }
